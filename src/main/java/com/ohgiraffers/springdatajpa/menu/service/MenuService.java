@@ -81,7 +81,8 @@ public class MenuService {
 	@Transactional
 	public void modifyMenu(MenuDTO modifyMenu) {
 
-
+		Menu foundMenu = menuRepository.findById(modifyMenu.getMenuCode()).orElseThrow(IllegalArgumentException::new);
+		foundMenu.setMenuName(modifyMenu.getMenuName());
 	}
 
 	/* 목차. 8. delete */

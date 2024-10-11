@@ -117,8 +117,10 @@ public class MenuController {
 
 	@PostMapping("/modify")
 	public String modifyMenu(MenuDTO modifyMenu) {
-		return null;
 
+		menuService.modifyMenu(modifyMenu);
+
+		return "redirect:/menu/" + modifyMenu.getMenuCode();
 	}
 	
 	@GetMapping("/delete")
