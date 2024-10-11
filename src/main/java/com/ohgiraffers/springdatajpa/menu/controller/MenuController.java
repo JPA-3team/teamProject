@@ -2,7 +2,7 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 
 import java.util.List;
 
-import com.ohgiraffers.springdatajpa.common.Pagenation;
+// import com.ohgiraffers.springdatajpa.common.Pagenation;
 import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
@@ -106,7 +106,10 @@ return null;
 	@PostMapping("/regist")
 	public String registNewMenu(MenuDTO newMenu) {
 
-return null;
+		menuService.registNewMenu(newMenu);
+
+		return "redirect:/menu/list";
+
 	}
 	
 	@GetMapping("/modify")
