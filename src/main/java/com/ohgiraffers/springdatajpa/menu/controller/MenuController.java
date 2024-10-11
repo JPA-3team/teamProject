@@ -91,11 +91,14 @@ public class MenuController {
 	@GetMapping("/regist")
 	public void registPage() {}
 
-//	@PostMapping("/regist")
-//	public String registNewMenu(MenuDTO newMenu) {
-//
-//
-//	}
+	@PostMapping("/regist")
+	public String registNewMenu(MenuDTO newMenu) {
+
+		menuService.registNewMenu(newMenu);
+
+		return "redirect:/menu/list";
+
+	}
 	
 	@GetMapping("/modify")
 	public void modifyPage() {}
