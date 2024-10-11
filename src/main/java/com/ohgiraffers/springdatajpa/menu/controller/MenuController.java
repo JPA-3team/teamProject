@@ -2,7 +2,7 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 
 import java.util.List;
 
-import com.ohgiraffers.springdatajpa.common.Pagenation;
+//import com.ohgiraffers.springdatajpa.common.Pagenation;
 import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
@@ -48,15 +48,15 @@ public class MenuController {
 	}
 	
 	/* 설명. JPA 페이징 처리 미적용 */
-//	@GetMapping("/list")
-//	public String findMenuList(Model model) {
-//
-//		List<MenuDTO> menuList = menuService.findMenuList();
-//
-//		model.addAttribute("menuList", menuList);
-//
-//		return "menu/list";
-//	}
+	@GetMapping("/list")
+	public String findMenuList(Model model) {
+
+		List<MenuDTO> menuList = menuService.findMenuList();
+
+		model.addAttribute("menuList", menuList);
+
+		return "menu/list";
+	}
 	
 	/* 설명. JPA 페이징 처리 적용 */
 	/**
@@ -78,9 +78,9 @@ public class MenuController {
 //
 //	}
 	
-//	@GetMapping("/querymethod")
-//	public void queryMethodPage() {}
-//
+	@GetMapping("/querymethod")
+	public void queryMethodPage() {}
+	
 //	@GetMapping("/search")
 //	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
 //
@@ -92,9 +92,9 @@ public class MenuController {
 	 *  이 뷰가 클라이언트 측의 브라우저에서 렌더링될 때 fetch 비동기 요청이 전송된다는 것을 잊지 말자.
 	 *  그 fetch 요청은 MenuController가 아닌 CategoryController 핸들러가 처리하도록 설계되었다.
 	 * */
-//	@GetMapping("/regist")
-//	public void registPage() {}
-//
+	@GetMapping("/regist")
+	public void registPage() {}
+
 //	@PostMapping("/regist")
 //	public String registNewMenu(MenuDTO newMenu) {
 //
@@ -103,16 +103,16 @@ public class MenuController {
 	
 	@GetMapping("/modify")
 	public void modifyPage() {}
-	
-	@PostMapping("/modify")
-	public String modifyMenu(MenuDTO modifyMenu) {
-
-		return null;
-	}
-	
-//	@GetMapping("/delete")
-//	public void deletePage() {}
 //
+//	@PostMapping("/modify")
+//	public String modifyMenu(MenuDTO modifyMenu) {
+//
+//
+//	}
+	
+	@GetMapping("/delete")
+	public void deletePage() {}
+	
 //	@PostMapping("/delete")
 //	public String deleteMenu(@RequestParam Integer menuCode) {
 //
