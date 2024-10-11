@@ -40,6 +40,11 @@ public class MenuController {
 	@GetMapping("/{menuCode}")
 	public String findMenuByCode(@PathVariable int menuCode, Model model) {
 
+		MenuDTO menu = menuService.findMenuByCode(menuCode);
+
+		model.addAttribute("menu", menu);
+
+		return "menu/detail";
 	}
 	
 	/* 설명. JPA 페이징 처리 미적용 */
@@ -67,51 +72,51 @@ public class MenuController {
 	 * @param model {@link org.springframework.ui.Model} 객체로, 뷰에 페이지 정보와 메뉴 리스트를 추가하는 데 사용된다.
 	 * @return 조회된 {@link java.util.List} 객체로, DB로부터 검색된 메뉴 리스트를 반환한다.
 	 */
-	@GetMapping("/list")
-	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
-
-
-	}
+//	@GetMapping("/list")
+//	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
+//
+//
+//	}
 	
-	@GetMapping("/querymethod")
-	public void queryMethodPage() {}
-	
-	@GetMapping("/search")
-	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
-		
-
-		
-	}
+//	@GetMapping("/querymethod")
+//	public void queryMethodPage() {}
+//
+//	@GetMapping("/search")
+//	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
+//
+//
+//
+//	}
 
 	/* 설명. 해당 핸들러에 의해 /menu/regist.html 뷰가 반환되고,
 	 *  이 뷰가 클라이언트 측의 브라우저에서 렌더링될 때 fetch 비동기 요청이 전송된다는 것을 잊지 말자.
 	 *  그 fetch 요청은 MenuController가 아닌 CategoryController 핸들러가 처리하도록 설계되었다.
 	 * */
-	@GetMapping("/regist")
-	public void registPage() {}
-
-	@PostMapping("/regist")
-	public String registNewMenu(MenuDTO newMenu) {
-		
-
-	}
+//	@GetMapping("/regist")
+//	public void registPage() {}
+//
+//	@PostMapping("/regist")
+//	public String registNewMenu(MenuDTO newMenu) {
+//
+//
+//	}
 	
 	@GetMapping("/modify")
 	public void modifyPage() {}
 	
 	@PostMapping("/modify")
 	public String modifyMenu(MenuDTO modifyMenu) {
-		
 
+		return null;
 	}
 	
-	@GetMapping("/delete")
-	public void deletePage() {}
-	
-	@PostMapping("/delete")
-	public String deleteMenu(@RequestParam Integer menuCode) {
-
-
-	}
+//	@GetMapping("/delete")
+//	public void deletePage() {}
+//
+//	@PostMapping("/delete")
+//	public String deleteMenu(@RequestParam Integer menuCode) {
+//
+//
+//	}
 
 }

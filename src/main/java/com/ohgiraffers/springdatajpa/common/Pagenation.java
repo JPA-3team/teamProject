@@ -24,9 +24,9 @@ public class Pagenation {
 	 *  현재 페이지 정보와 총 페이지 수를 관리한다.
 	 * @return {@link PagingButtonInfo} 객체로, 현재 페이지, 시작 페이지, 끝 페이지 정보를 관리한다.
 	 */
-	public static PagingButtonInfo getPagingButtonInfo(Page page) {
-		
-
-	}
+//	public static PagingButtonInfo getPagingButtonInfo(Page page) {
+//
+//
+//	}
 
 }
