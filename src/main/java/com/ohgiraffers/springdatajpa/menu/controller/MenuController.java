@@ -2,8 +2,11 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 
 import java.util.List;
 
+import com.ohgiraffers.springdatajpa.common.Pagenation;
+import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -39,15 +42,15 @@ return null;
 	}
 	
 	/* 설명. JPA 페이징 처리 미적용 */
-//	@GetMapping("/list")
-//	public String findMenuList(Model model) {
-//
-//		List<MenuDTO> menuList = menuService.findMenuList();
-//
-//		model.addAttribute("menuList", menuList);
-//
-//		return "menu/list";
-//	}
+	@GetMapping("/list")
+	public String findMenuList(Model model) {
+
+		List<MenuDTO> menuList = menuService.findMenuList();
+
+		model.addAttribute("menuList", menuList);
+
+		return "menu/list";
+	}
 	
 	/* 설명. JPA 페이징 처리 적용 */
 	/**
