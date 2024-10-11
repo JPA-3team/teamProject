@@ -1,5 +1,10 @@
 package com.ohgiraffers.springdatajpa.menu.controller;
 
+import java.util.List;
+
+// import com.ohgiraffers.springdatajpa.common.Pagenation;
+// import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
+
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,13 +31,20 @@ public class MenuController {
 	/* 설명. MenuService 생성자 주입 */
 	// @Autowired를 작성하지 않아도 자동 적용됨을 잊지 말자.
 	public MenuController(MenuService menuService) {
+
 		this.menuService = menuService;
 	}
 	
 	@GetMapping("/{menuCode}")
 	public String findMenuByCode(@PathVariable int menuCode, Model model) {
 
-		return null;
+
+		MenuDTO menu = menuService.findMenuByCode(menuCode);
+
+		model.addAttribute("menu", menu);
+
+		return "menu/detail";
+
 	}
 	
 	/* 설명. JPA 페이징 처리 미적용 */
@@ -81,7 +93,7 @@ public class MenuController {
 
 		return "menu/searchResult";
 
-		
+
 	}
 
 	/* 설명. 해당 핸들러에 의해 /menu/regist.html 뷰가 반환되고,
@@ -94,17 +106,15 @@ public class MenuController {
 	@PostMapping("/regist")
 	public String registNewMenu(MenuDTO newMenu) {
 
-
 		menuService.registNewMenu(newMenu);
 
 		return "redirect:/menu/list";
-
 
 	}
 	
 	@GetMapping("/modify")
 	public void modifyPage() {}
-	
+
 	@PostMapping("/modify")
 	public String modifyMenu(MenuDTO modifyMenu) {
 		return null;
