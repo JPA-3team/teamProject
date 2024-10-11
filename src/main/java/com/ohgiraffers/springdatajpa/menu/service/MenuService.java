@@ -28,13 +28,13 @@ public class MenuService {
 	}
 	
 	/* 목차. 1. findById */
-	public MenuDTO findMenuByCode(int menuCode) {
-		
-		/* 설명. findById 메소드는 이미 구현되어 있으므로 인터페이스에 따로 정의할 필요가 없다.
-		 *  findById 의 반환값은 Optional 타입이다. Optional 타입은 NPE을 방지하기 위한 다양한 기능이 존재한다.
-		 *  해당 id로 조회되지 못했을 경우 IllegalArgumentException을 발생시킨다. */
-
-	}
+//	public MenuDTO findMenuByCode(int menuCode) {
+//
+//		/* 설명. findById 메소드는 이미 구현되어 있으므로 인터페이스에 따로 정의할 필요가 없다.
+//		 *  findById 의 반환값은 Optional 타입이다. Optional 타입은 NPE을 방지하기 위한 다양한 기능이 존재한다.
+//		 *  해당 id로 조회되지 못했을 경우 IllegalArgumentException을 발생시킨다. */
+//
+//	}
 	
 	/* 목차. 2. findAll -> 페이징 처리 전 */
 	public List<MenuDTO> findMenuList() {
@@ -42,22 +42,28 @@ public class MenuService {
 		/* 설명. findAll 메소드는 이미 구현 되어 있으므로 인터페이스에 따로 정의할 필요가 없다.
 		 *  Sort(정렬) 기준을 전달하며 조회할 수도 있다.
 		 * */
+		List<Menu> menuList = menuRepository.findAll(Sort.by("menuCode").descending());
+
+		return menuList
+				.stream()
+				.map(menu -> modelMapper.map(menu, MenuDTO.class))
+				.collect(Collectors.toList());
 
 	}
 
-	/* 목차. 3. Page -> 페이징 처리 후 */
-	public Page<MenuDTO> findMenuList(Pageable pageable) {
-		
-
-	}
+//	/* 목차. 3. Page -> 페이징 처리 후 */
+//	public Page<MenuDTO> findMenuList(Pageable pageable) {
+//
+//
+//	}
 
 	
-	/* 목차. 4. QueryMethod */
-	/* 설명. MenuRepository에 세 종류의 메서드가 정의되어 있고, 아래 목차 1~3 메서드를 주석처리 하며 테스트한다. */
-	public List<MenuDTO> findByMenuPrice(Integer menuPrice) {
-
-
-	}
+//	/* 목차. 4. QueryMethod */
+//	/* 설명. MenuRepository에 세 종류의 메서드가 정의되어 있고, 아래 목차 1~3 메서드를 주석처리 하며 테스트한다. */
+//	public List<MenuDTO> findByMenuPrice(Integer menuPrice) {
+//
+//
+//	}
 
 	/* 목차. 5. JPQL or native query */
 	// CategoryService 참고
