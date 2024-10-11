@@ -71,6 +71,7 @@ return null;
 		
 		/* 설명. CrudRepository에 미리 정의 되어 있는 save() 메소드를 통해 하나의 엔티티를 저장할 수 있다. */
 
+		menuRepository.save(modelMapper.map(newMenu, Menu.class));
 	}
 
 	/* 목차. 7. 수정하기 - 엔티티 조회 후 값 변경 */

@@ -99,8 +99,13 @@ return null;
 
 	@PostMapping("/regist")
 	public String registNewMenu(MenuDTO newMenu) {
-		
-return null;
+
+
+		menuService.registNewMenu(newMenu);
+
+		return "redirect:/menu/list";
+
+
 	}
 	
 	@GetMapping("/modify")
