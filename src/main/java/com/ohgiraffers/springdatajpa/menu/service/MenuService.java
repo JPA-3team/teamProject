@@ -4,6 +4,9 @@ import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.entity.Menu;
 import com.ohgiraffers.springdatajpa.menu.repository.MenuRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,6 +50,19 @@ public class MenuService {
 				.map(menu -> modelMapper.map(menu, MenuDTO.class))
 				.collect(Collectors.toList());
 
+	}
+
+	/* 목차. 3. Page -> 페이징 처리 후 */
+	public Page<MenuDTO> findMenuList(Pageable pageable) {
+
+		/* 설명. page 파라미터가 Pageable의 number 값으로 넘어오는데 해당 값이 조회시에는 인덱스 기준이 되어야 해서 -1 처리가 필요하다. */
+		pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber() - 1,
+				pageable.getPageSize(),
+				Sort.by("menuCode").descending());
+
+		Page<Menu> menuList = menuRepository.findAll(pageable);
+
+		return menuList.map(menu -> modelMapper.map(menu, MenuDTO.class));
 	}
 
 
