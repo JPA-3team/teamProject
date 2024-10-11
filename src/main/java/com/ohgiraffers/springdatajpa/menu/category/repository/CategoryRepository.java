@@ -1,8 +1,8 @@
-package com.ohgiraffers.springdatajpa.category.repository;
+package com.ohgiraffers.springdatajpa.menu.category.repository;
 
 import java.util.List;
 
-import com.ohgiraffers.springdatajpa.category.entity.Category;
+import com.ohgiraffers.springdatajpa.menu.category.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,7 +1,7 @@
-package com.ohgiraffers.springdatajpa.menu.repository;
+package com.ohgiraffers.springdatajpa.menu.menu.repository;
 
 import java.util.List;
-import com.ohgiraffers.springdatajpa.menu.entity.Menu;
+import com.ohgiraffers.springdatajpa.menu.menu.entity.Menu;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.ohgiraffers.springdatajpa;
+package com.ohgiraffers.springdatajpa.menu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

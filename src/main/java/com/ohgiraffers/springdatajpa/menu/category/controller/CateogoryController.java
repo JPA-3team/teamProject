@@ -1,7 +1,7 @@
-package com.ohgiraffers.springdatajpa.category.controller;
+package com.ohgiraffers.springdatajpa.menu.category.controller;
 
-import com.ohgiraffers.springdatajpa.category.service.CategoryService;
-import com.ohgiraffers.springdatajpa.category.dto.CategoryDTO;
+import com.ohgiraffers.springdatajpa.menu.category.service.CategoryService;
+import com.ohgiraffers.springdatajpa.menu.category.dto.CategoryDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

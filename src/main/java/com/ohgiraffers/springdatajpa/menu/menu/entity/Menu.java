@@ -1,4 +1,4 @@
-package com.ohgiraffers.springdatajpa.menu.entity;
+package com.ohgiraffers.springdatajpa.menu.menu.entity;
 
 import jakarta.persistence.*;
 

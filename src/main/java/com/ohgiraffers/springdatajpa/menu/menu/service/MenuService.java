@@ -1,8 +1,8 @@
-package com.ohgiraffers.springdatajpa.menu.service;
+package com.ohgiraffers.springdatajpa.menu.menu.service;
 
-import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
-import com.ohgiraffers.springdatajpa.menu.entity.Menu;
-import com.ohgiraffers.springdatajpa.menu.repository.MenuRepository;
+import com.ohgiraffers.springdatajpa.menu.menu.dto.MenuDTO;
+import com.ohgiraffers.springdatajpa.menu.menu.entity.Menu;
+import com.ohgiraffers.springdatajpa.menu.menu.repository.MenuRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

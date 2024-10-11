@@ -1,4 +1,4 @@
-package com.ohgiraffers.springdatajpa.menu.dto;
+package com.ohgiraffers.springdatajpa.menu.menu.dto;
 
 public class MenuDTO {
 	

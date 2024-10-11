@@ -1,4 +1,4 @@
-package com.ohgiraffers.springdatajpa.config;
+package com.ohgiraffers.springdatajpa.menu.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

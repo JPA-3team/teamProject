@@ -1,4 +1,4 @@
-package com.ohgiraffers.springdatajpa.category.dto;
+package com.ohgiraffers.springdatajpa.menu.category.dto;
 
 public class CategoryDTO {
 	

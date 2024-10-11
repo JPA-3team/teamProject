@@ -1,4 +1,4 @@
-package com.ohgiraffers.springdatajpa.category.entity;
+package com.ohgiraffers.springdatajpa.menu.category.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

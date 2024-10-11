@@ -1,8 +1,8 @@
-package com.ohgiraffers.springdatajpa.category.service;
+package com.ohgiraffers.springdatajpa.menu.category.service;
 
-import com.ohgiraffers.springdatajpa.category.dto.CategoryDTO;
-import com.ohgiraffers.springdatajpa.category.entity.Category;
-import com.ohgiraffers.springdatajpa.category.repository.CategoryRepository;
+import com.ohgiraffers.springdatajpa.menu.category.dto.CategoryDTO;
+import com.ohgiraffers.springdatajpa.menu.category.entity.Category;
+import com.ohgiraffers.springdatajpa.menu.category.repository.CategoryRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

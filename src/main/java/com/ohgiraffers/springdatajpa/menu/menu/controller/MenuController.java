@@ -1,20 +1,16 @@
-package com.ohgiraffers.springdatajpa.menu.controller;
+package com.ohgiraffers.springdatajpa.menu.menu.controller;
 
 import java.util.List;
 
 // import com.ohgiraffers.springdatajpa.common.Pagenation;
 // import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
 
-import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
-import com.ohgiraffers.springdatajpa.menu.service.MenuService;
+import com.ohgiraffers.springdatajpa.menu.menu.dto.MenuDTO;
+import com.ohgiraffers.springdatajpa.menu.menu.service.MenuService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /* 설명. @Slf4j(Simple Logging Facade for Java):
  *  Lombok 라이브러리의 어노테이션으로 클래스에 자동으로 SLF4J Logger 인스턴스를 추가해준다.

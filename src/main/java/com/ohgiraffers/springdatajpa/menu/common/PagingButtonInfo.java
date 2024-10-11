@@ -1,4 +1,4 @@
-package com.ohgiraffers.springdatajpa.common;
+package com.ohgiraffers.springdatajpa.menu.common;
 
 /**
  * 페이지네이션 버튼 정보(현재 페이지, 시작 페이지, 끝 페이지)를 저장하는 클래스.
