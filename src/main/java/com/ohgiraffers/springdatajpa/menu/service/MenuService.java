@@ -87,7 +87,6 @@ public class MenuService {
 	public void deleteMenu(Integer menuCode) {
 
 		menuRepository.deleteById(menuCode);
-		rAttr.addFlashAttribute("message", "메뉴가 삭제되었습니다.");
 
 	}
 	
