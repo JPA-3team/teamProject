@@ -2,11 +2,8 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 
 import java.util.List;
 
-import com.ohgiraffers.springdatajpa.common.Pagenation;
-import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -33,13 +30,12 @@ public class MenuController {
 	/* 설명. MenuService 생성자 주입 */
 	// @Autowired를 작성하지 않아도 자동 적용됨을 잊지 말자.
 	public MenuController(MenuService menuService) {
-
 		this.menuService = menuService;
 	}
 	
 	@GetMapping("/{menuCode}")
 	public String findMenuByCode(@PathVariable int menuCode, Model model) {
-
+return null;
 	}
 	
 	/* 설명. JPA 페이징 처리 미적용 */
@@ -70,15 +66,23 @@ public class MenuController {
 	@GetMapping("/list")
 	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
 
-
+return null;
 	}
-	
+
+	/*쿼리메소드 버튼을 누르면 이 페이지를 보여준다.*/
 	@GetMapping("/querymethod")
-	public void queryMethodPage() {}
-	
+	public void queryMethodPage() { }
+
+	/*쿼리메소드 페이지의 버튼 findMenuByMenuPriceGreatThen(금액) */
 	@GetMapping("/search")
 	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
-		
+
+		List<MenuDTO> menuList = menuService.findByMenuPrice(menuPrice);
+
+		model.addAttribute("menuList", menuList);
+		model.addAttribute("menuPrice", menuPrice);
+
+		return "menu/searchResult";
 
 		
 	}
@@ -93,7 +97,7 @@ public class MenuController {
 	@PostMapping("/regist")
 	public String registNewMenu(MenuDTO newMenu) {
 		
-
+return null;
 	}
 	
 	@GetMapping("/modify")
@@ -101,7 +105,7 @@ public class MenuController {
 	
 	@PostMapping("/modify")
 	public String modifyMenu(MenuDTO modifyMenu) {
-		
+		return null;
 
 	}
 	
@@ -110,7 +114,7 @@ public class MenuController {
 	
 	@PostMapping("/delete")
 	public String deleteMenu(@RequestParam Integer menuCode) {
-
+return null;
 
 	}
 
