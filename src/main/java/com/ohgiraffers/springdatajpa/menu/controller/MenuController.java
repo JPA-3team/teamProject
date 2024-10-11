@@ -3,20 +3,18 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 import java.util.List;
 
 // import com.ohgiraffers.springdatajpa.common.Pagenation;
-import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
+// import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
+
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
-import org.springframework.data.domain.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /* 설명. @Slf4j(Simple Logging Facade for Java):
  *  Lombok 라이브러리의 어노테이션으로 클래스에 자동으로 SLF4J Logger 인스턴스를 추가해준다.
@@ -40,11 +38,13 @@ public class MenuController {
 	@GetMapping("/{menuCode}")
 	public String findMenuByCode(@PathVariable int menuCode, Model model) {
 
+
 		MenuDTO menu = menuService.findMenuByCode(menuCode);
 
 		model.addAttribute("menu", menu);
 
 		return "menu/detail";
+
 	}
 	
 	/* 설명. JPA 페이징 처리 미적용 */
@@ -72,11 +72,11 @@ public class MenuController {
 	 * @param model {@link org.springframework.ui.Model} 객체로, 뷰에 페이지 정보와 메뉴 리스트를 추가하는 데 사용된다.
 	 * @return 조회된 {@link java.util.List} 객체로, DB로부터 검색된 메뉴 리스트를 반환한다.
 	 */
-	@GetMapping("/list")
-	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
-
-return null;
-	}
+//	@GetMapping("/list")
+//	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
+//
+//return null;
+//	}
 
 	/*쿼리메소드 버튼을 누르면 이 페이지를 보여준다.*/
 	@GetMapping("/querymethod")
@@ -126,7 +126,8 @@ return null;
 	
 	@PostMapping("/delete")
 	public String deleteMenu(@RequestParam Integer menuCode) {
-return null;
+
+		return null;
 
 	}
 
