@@ -122,14 +122,18 @@ public class MenuController {
 
 		return "redirect:/menu/" + modifyMenu.getMenuCode();
 	}
-	
+
+	/*get 매핑으로 메인에서 메뉴삭제하기 버튼 눌러서 가는 페이지 */
 	@GetMapping("/delete")
 	public void deletePage() {}
-	
+
+	/*메뉴삭제 페이지에서 인풋 post 폼 메뉴번호로 삭제 */
 	@PostMapping("/delete")
 	public String deleteMenu(@RequestParam Integer menuCode) {
 
-		return null;
+		menuService.deleteMenu(menuCode);
+
+		return "redirect:/menu/list";
 
 	}
 
