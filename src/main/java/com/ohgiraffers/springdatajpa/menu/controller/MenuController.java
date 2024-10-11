@@ -2,7 +2,7 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 
 import java.util.List;
 
-//import com.ohgiraffers.springdatajpa.common.Pagenation;
+import com.ohgiraffers.springdatajpa.common.Pagenation;
 import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
@@ -72,21 +72,29 @@ public class MenuController {
 	 * @param model {@link org.springframework.ui.Model} 객체로, 뷰에 페이지 정보와 메뉴 리스트를 추가하는 데 사용된다.
 	 * @return 조회된 {@link java.util.List} 객체로, DB로부터 검색된 메뉴 리스트를 반환한다.
 	 */
-//	@GetMapping("/list")
-//	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
-//
-//
-//	}
-	
+	@GetMapping("/list")
+	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
+
+return null;
+	}
+
+	/*쿼리메소드 버튼을 누르면 이 페이지를 보여준다.*/
 	@GetMapping("/querymethod")
-	public void queryMethodPage() {}
-	
-//	@GetMapping("/search")
-//	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
-//
-//
-//
-//	}
+	public void queryMethodPage() { }
+
+	/*쿼리메소드 페이지의 버튼 findMenuByMenuPriceGreatThen(금액) */
+	@GetMapping("/search")
+	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
+
+		List<MenuDTO> menuList = menuService.findByMenuPrice(menuPrice);
+
+		model.addAttribute("menuList", menuList);
+		model.addAttribute("menuPrice", menuPrice);
+
+		return "menu/searchResult";
+
+
+	}
 
 	/* 설명. 해당 핸들러에 의해 /menu/regist.html 뷰가 반환되고,
 	 *  이 뷰가 클라이언트 측의 브라우저에서 렌더링될 때 fetch 비동기 요청이 전송된다는 것을 잊지 말자.
@@ -95,28 +103,28 @@ public class MenuController {
 	@GetMapping("/regist")
 	public void registPage() {}
 
-//	@PostMapping("/regist")
-//	public String registNewMenu(MenuDTO newMenu) {
-//
-//
-//	}
+	@PostMapping("/regist")
+	public String registNewMenu(MenuDTO newMenu) {
+
+return null;
+	}
 	
 	@GetMapping("/modify")
 	public void modifyPage() {}
-//
-//	@PostMapping("/modify")
-//	public String modifyMenu(MenuDTO modifyMenu) {
-//
-//
-//	}
+
+	@PostMapping("/modify")
+	public String modifyMenu(MenuDTO modifyMenu) {
+		return null;
+
+	}
 	
 	@GetMapping("/delete")
 	public void deletePage() {}
 	
-//	@PostMapping("/delete")
-//	public String deleteMenu(@RequestParam Integer menuCode) {
-//
-//
-//	}
+	@PostMapping("/delete")
+	public String deleteMenu(@RequestParam Integer menuCode) {
+return null;
+
+	}
 
 }
