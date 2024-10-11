@@ -2,7 +2,7 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 
 import java.util.List;
 
-import com.ohgiraffers.springdatajpa.common.Pagenation;
+//import com.ohgiraffers.springdatajpa.common.Pagenation;
 import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
@@ -37,21 +37,22 @@ public class MenuController {
 		this.menuService = menuService;
 	}
 	
-	@GetMapping("/{menuCode}")
-	public String findMenuByCode(@PathVariable int menuCode, Model model) {
-
-	}
+//	@GetMapping("/{menuCode}")
+//	public String findMenuByCode(@PathVariable int menuCode, Model model) {
+//
+//
+//	}
 	
 	/* 설명. JPA 페이징 처리 미적용 */
-//	@GetMapping("/list")
-//	public String findMenuList(Model model) {
-//
-//		List<MenuDTO> menuList = menuService.findMenuList();
-//
-//		model.addAttribute("menuList", menuList);
-//
-//		return "menu/list";
-//	}
+	@GetMapping("/list")
+	public String findMenuList(Model model) {
+
+		List<MenuDTO> menuList = menuService.findMenuList();
+
+		model.addAttribute("menuList", menuList);
+
+		return "menu/list";
+	}
 	
 	/* 설명. JPA 페이징 처리 적용 */
 	/**
@@ -67,21 +68,21 @@ public class MenuController {
 	 * @param model {@link org.springframework.ui.Model} 객체로, 뷰에 페이지 정보와 메뉴 리스트를 추가하는 데 사용된다.
 	 * @return 조회된 {@link java.util.List} 객체로, DB로부터 검색된 메뉴 리스트를 반환한다.
 	 */
-	@GetMapping("/list")
-	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
-
-
-	}
+//	@GetMapping("/list")
+//	public String findMenuList(@PageableDefault Pageable pageable, Model model) {
+//
+//
+//	}
 	
 	@GetMapping("/querymethod")
 	public void queryMethodPage() {}
 	
-	@GetMapping("/search")
-	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
-		
-
-		
-	}
+//	@GetMapping("/search")
+//	public String findByMenuPrice(@RequestParam Integer menuPrice, Model model) {
+//
+//
+//
+//	}
 
 	/* 설명. 해당 핸들러에 의해 /menu/regist.html 뷰가 반환되고,
 	 *  이 뷰가 클라이언트 측의 브라우저에서 렌더링될 때 fetch 비동기 요청이 전송된다는 것을 잊지 말자.
@@ -90,28 +91,28 @@ public class MenuController {
 	@GetMapping("/regist")
 	public void registPage() {}
 
-	@PostMapping("/regist")
-	public String registNewMenu(MenuDTO newMenu) {
-		
-
-	}
+//	@PostMapping("/regist")
+//	public String registNewMenu(MenuDTO newMenu) {
+//
+//
+//	}
 	
 	@GetMapping("/modify")
 	public void modifyPage() {}
-	
-	@PostMapping("/modify")
-	public String modifyMenu(MenuDTO modifyMenu) {
-		
-
-	}
+//
+//	@PostMapping("/modify")
+//	public String modifyMenu(MenuDTO modifyMenu) {
+//
+//
+//	}
 	
 	@GetMapping("/delete")
 	public void deletePage() {}
 	
-	@PostMapping("/delete")
-	public String deleteMenu(@RequestParam Integer menuCode) {
-
-
-	}
+//	@PostMapping("/delete")
+//	public String deleteMenu(@RequestParam Integer menuCode) {
+//
+//
+//	}
 
 }
