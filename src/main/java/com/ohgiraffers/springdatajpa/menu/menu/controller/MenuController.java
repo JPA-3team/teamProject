@@ -1,11 +1,10 @@
-package com.ohgiraffers.springdatajpa.menu.controller;
+package com.ohgiraffers.springdatajpa.menu.menu.controller;
 
 import java.util.List;
 
-import com.ohgiraffers.springdatajpa.common.Pagenation;
-import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
-import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
-import com.ohgiraffers.springdatajpa.menu.service.MenuService;
+import com.ohgiraffers.springdatajpa.menu.common.PagingButtonInfo;
+import com.ohgiraffers.springdatajpa.menu.menu.dto.MenuDTO;
+import com.ohgiraffers.springdatajpa.menu.menu.service.MenuService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -94,7 +93,7 @@ public class MenuController {
 		log.info("정렬 방식 : {}", menuList.getSort());
 		log.info("여러 페이지 중 현재 인덱스 : {}", menuList.getNumber());
 
-		PagingButtonInfo paging = Pagenation.getPagingButtonInfo(menuList);
+		PagingButtonInfo paging = com.ohgiraffers.springdatajpa.common.Pagenation.getPagingButtonInfo(menuList);
 
 		model.addAttribute("paging", paging);
 		model.addAttribute("menuList", menuList);

@@ -1,5 +1,6 @@
 package com.ohgiraffers.springdatajpa.common;
 
+import com.ohgiraffers.springdatajpa.menu.common.PagingButtonInfo;
 import org.springframework.data.domain.Page;
 
 /**
