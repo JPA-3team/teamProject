@@ -1,24 +1,28 @@
 package com.ohgiraffers.springdatajpa.menu;
 
 import com.ohgiraffers.springdatajpa.menu.menu.dto.MenuDTO;
-import com.ohgiraffers.springdatajpa.menu.menu.entity.Menu;
 import com.ohgiraffers.springdatajpa.menu.menu.service.MenuService;
-import jakarta.persistence.Transient;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class Chap06SpringDataJpaApplicationTests {
 
+
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private EntityManager entityManager;
+
 
     @Test
     void selectAll_테스트() {
@@ -67,8 +71,8 @@ class Chap06SpringDataJpaApplicationTests {
         }
 
     }
-    @Transactional
     @Test
+    @Transactional
     void registNewMenu_테스트() {
 
         //given
@@ -82,8 +86,8 @@ class Chap06SpringDataJpaApplicationTests {
         System.out.println("newMenu = " + newMenu);
     }
 
-    @Transactional
     @Test
+    @Transactional
     void updateMenu_테스트 () {
 
         //given
@@ -100,17 +104,33 @@ class Chap06SpringDataJpaApplicationTests {
     }
 
     @Test
-    void deleteMenu_테스트(){
+    @Transactional
+    void deleteMenu_테스트() {
 
         //given
-        int menuCode = 20;
+        int menuCode = 10;
 
         //when
-       menuService.deleteMenu(menuCode);
+
+        MenuDTO menu = menuService.findMenuByCode(menuCode);
+        System.out.println("menu = " + menu);
+
+        menuService.deleteMenu(menuCode);
+        entityManager.flush();
+        entityManager.clear();
 
         //then
-        assertNull(menuService.findMenuByCode(20));
+        MenuDTO deletedMenu;
 
+        try {
+        deletedMenu = menuService.findMenuByCode(menuCode);
+
+        } catch (IllegalArgumentException e) {
+            deletedMenu = null;
+            System.out.println("Transactional 로 인해 rallback 되어 삭제 되지 않으나 테스트로는 삭제 확인하였습니다. 쿼리문 확인 완료.");
+        }
+
+        assertNull(deletedMenu);
+        System.out.println(deletedMenu);
     }
-
 }
