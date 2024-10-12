@@ -4,6 +4,9 @@ import com.ohgiraffers.springdatajpa.menu.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.menu.entity.Menu;
 import com.ohgiraffers.springdatajpa.menu.menu.repository.MenuRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,6 +52,19 @@ public class MenuService {
 
 	}
 
+	/* 목차. 3. Page -> 페이징 처리 후 */
+	public Page<MenuDTO> findMenuList(Pageable pageable) {
+
+		/* 설명. page 파라미터가 Pageable의 number 값으로 넘어오는데 해당 값이 조회시에는 인덱스 기준이 되어야 해서 -1 처리가 필요하다. */
+		pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber() - 1,
+				pageable.getPageSize(),
+				Sort.by("menuCode").descending());
+
+		Page<Menu> menuList = menuRepository.findAll(pageable);
+
+		return menuList.map(menu -> modelMapper.map(menu, MenuDTO.class));
+	}
+
 
 	/* 목차. 4. QueryMethod */
 	/* 설명. MenuRepository에 세 종류의 메서드가 정의되어 있고, 아래 목차 1~3 메서드를 주석처리 하며 테스트한다. */
@@ -79,7 +95,8 @@ public class MenuService {
 	@Transactional
 	public void modifyMenu(MenuDTO modifyMenu) {
 
-
+		Menu foundMenu = menuRepository.findById(modifyMenu.getMenuCode()).orElseThrow(IllegalArgumentException::new);
+		foundMenu.setMenuName(modifyMenu.getMenuName());
 	}
 
 	/* 목차. 8. delete */
