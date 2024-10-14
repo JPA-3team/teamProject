@@ -51,7 +51,7 @@
 		<button th:onclick="'location.href=\'/menu/list?page=' + @{${ paging.endPage }} + '\''">끝</button>
 	</div>
 	<br>
-	<button onclick="location.href='/'">메인으로</button>
+	<button th:onclick="|location.href='@{/}'|">메인으로</button>
 
 </body>
 </html>
