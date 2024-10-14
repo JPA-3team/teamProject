@@ -91,16 +91,16 @@ class Chap06SpringDataJpaApplicationTests {
     void updateMenu_테스트 () {
 
         //given
-        MenuDTO changeMenu = new MenuDTO(5,"천사엉덩이국",3000,1,"Y");
+        MenuDTO changedMenu = new MenuDTO(5,"천사엉덩이국",3000,1,"Y");
 
 
 
         //when
-        menuService.modifyMenu(changeMenu);
+        menuService.modifyMenu(changedMenu);
 
         //then
-        assertEquals("천사엉덩이국",changeMenu.getMenuName());
-        System.out.println("changeMenu = " + changeMenu);
+        assertEquals("천사엉덩이국",changedMenu.getMenuName());
+        System.out.println("changeMenu = " + changedMenu);
     }
 
     @Test
@@ -127,10 +127,10 @@ class Chap06SpringDataJpaApplicationTests {
 
         } catch (IllegalArgumentException e) {
             deletedMenu = null;
-            System.out.println("Transactional 로 인해 rallback 되어 삭제 되지 않으나 테스트로는 삭제 확인하였습니다. 쿼리문 확인 완료.");
+            System.out.println("Transactional 로 인해 rollback 되어 삭제 되지 않으나 테스트로는 삭제 확인하였습니다. 쿼리문 확인 완료.");
         }
 
         assertNull(deletedMenu);
-        System.out.println(deletedMenu);
+        System.out.println("deletedMenu = " + deletedMenu);
     }
 }
