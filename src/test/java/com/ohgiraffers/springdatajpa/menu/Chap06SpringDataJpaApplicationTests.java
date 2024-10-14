@@ -31,12 +31,14 @@ class Chap06SpringDataJpaApplicationTests {
 
         List<MenuDTO> menuList = menuService.findMenuList();
 
+
         //then
         assertNotNull(menuList);
         for (MenuDTO m : menuList) {
             System.out.println(m);
         }
 
+        System.out.println("menuList = " + menuList);
     }
 
     @Test
@@ -78,11 +80,14 @@ class Chap06SpringDataJpaApplicationTests {
         //given
         MenuDTO newMenu = new MenuDTO(300,"똥멍청이바보볶음밥",3000,1,"Y");
 
+        System.out.println("newMenu = " + newMenu);
+
         //when
         menuService.registNewMenu(newMenu);;
 
         //then
         assertNotNull(newMenu);
+
         System.out.println("newMenu = " + newMenu);
     }
 
