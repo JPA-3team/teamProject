@@ -5,6 +5,7 @@ import java.util.List;
 import com.ohgiraffers.springdatajpa.menu.common.PagingButtonInfo;
 import com.ohgiraffers.springdatajpa.menu.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.menu.service.MenuService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -17,12 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import lombok.extern.slf4j.Slf4j;
 
-
-/* 설명. @Slf4j(Simple Logging Facade for Java):
- *  Lombok 라이브러리의 어노테이션으로 클래스에 자동으로 SLF4J Logger 인스턴스를 추가해준다.
- *  따라서 개발자는 코드에 별도의 Logger 객체 선언 없이 'log' 변수를 사용해 바로 로깅 가능하다.
- *  로깅 프레임워크에 종속되지 않는 방식으로 로깅 인터페이스를 사용할 수 있게 해준다.
- * */
 @Slf4j
 @Controller
 @RequestMapping("/menu")
@@ -30,8 +25,7 @@ public class MenuController {
 
 	private final MenuService menuService;
 
-	/* 설명. MenuService 생성자 주입 */
-	// @Autowired를 작성하지 않아도 자동 적용됨을 잊지 말자.
+	@Autowired
 	public MenuController(MenuService menuService) {
 
 		this.menuService = menuService;
@@ -116,13 +110,8 @@ public class MenuController {
 
 		return "menu/searchResult";
 
-
 	}
 
-	/* 설명. 해당 핸들러에 의해 /menu/regist.html 뷰가 반환되고,
-	 *  이 뷰가 클라이언트 측의 브라우저에서 렌더링될 때 fetch 비동기 요청이 전송된다는 것을 잊지 말자.
-	 *  그 fetch 요청은 MenuController가 아닌 CategoryController 핸들러가 처리하도록 설계되었다.
-	 * */
 	@GetMapping("/regist")
 	public void registPage() {}
 

@@ -129,7 +129,7 @@ class Chap06SpringDataJpaApplicationTests {
 
         } catch (IllegalArgumentException e) {
             deletedMenu = null;
-            System.out.println("Transactional 로 인해 rollback 되어 삭제 되지 않으나 테스트로는 삭제 확인하였습니다. 쿼리문 확인 완료.");
+            System.out.println("IllegalArgumentException로 인해 null 처리");
         }
 
         assertNull(deletedMenu);
