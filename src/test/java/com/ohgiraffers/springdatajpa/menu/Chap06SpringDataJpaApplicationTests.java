@@ -51,7 +51,6 @@ class Chap06SpringDataJpaApplicationTests {
         //then
         assertNotNull(menu);
         System.out.println("menu = " + menu);
-
     }
 
     @Test
@@ -92,8 +91,6 @@ class Chap06SpringDataJpaApplicationTests {
 
         //given
         MenuDTO changedMenu = new MenuDTO(5,"천사엉덩이국",3000,1,"Y");
-
-
 
         //when
         menuService.modifyMenu(changedMenu);
